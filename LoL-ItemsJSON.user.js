@@ -32,14 +32,14 @@ document.GatherTheData = function() {
 		Output += '\n\t\t{\n\t\t\t"type": "'+Type+'",\n\t\t\t"items": [';
 		ItemSpans = Divs[i].children[1].children;
 		for(j=0; j<ItemSpans.length; j++) {
-			ItemCode = document.ItemCodes[ ItemSpans[j].querySelector("span").innerHTML ];
+			let ItemCode = document.ItemCodes[ ItemSpans[j].querySelector("span").innerHTML ];
 			Output += '\n\t\t\t\t{ "id": "'+ItemCode+'", "count": 1 }';
 			if(j != ItemSpans.length-1)
-				Output += ',';
+			{Output += ',';}
 		}
 		Output += '\n\t\t\t]\n\t\t}';
 		if(i != Divs.length-1)
-			Output += ',';
+		{Output += ',';}
 	}
 	Output += "\n\t]\n}";
 	console.log("============ gathered the data ============");
@@ -67,7 +67,7 @@ document.body.appendChild(TheTextarea);
 
 /* THE FOLLOWING IS A REFERENCE FOR HOW I GATHERED THE ITEM AND CHAMPION DATA
 
-// https://ddragon.leagueoflegends.com/cdn/10.15.1/data/en_US/item.json
+// http://ddragon.leagueoflegends.com/cdn/10.23.1/data/en_US/item.json
 INPUT = JSON.parse(this.JSONView.json.data).data;
 String.prototype.removeTrinket=function(){return this.replace(/ \([\D\d]*\)/gi,"")}
 OUTPUT = "document.ItemCodes = {";
@@ -75,7 +75,7 @@ for(code in INPUT)
 	OUTPUT += '"' + INPUT[code].name.removeTrinket() + '":' + code + ",";
 console.log( OUTPUT.slice(0,-1) + "};" );
 
-// https://ddragon.leagueoflegends.com/cdn/10.15.1/data/en_US/champion.json
+// http://ddragon.leagueoflegends.com/cdn/10.23.1/data/en_US/champion.json
 INPUT = JSON.parse(this.JSONView.json.data).data;
 OUTPUT = "document.ChampionCodes = {";
 for(name in INPUT)
