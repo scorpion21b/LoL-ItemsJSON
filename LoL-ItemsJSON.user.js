@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        LoL-ItemsJSON
-// @version     11.3.1
+// @version     11.4.1
 // @author      EagleExe
 // @include     https://mobafire.com/league-of-legends/build/*
 // @include     https://www.mobafire.com/league-of-legends/build/*
@@ -131,15 +131,15 @@ document.body.appendChild(TheTextarea);
 /* THE FOLLOWING IS A REFERENCE FOR HOW I GATHERED THE ITEM AND CHAMPION DATA
  * THE LATEST VERSION OF THE .json FILE NAMES CAN BE FOUND BY GOING HERE https://ddragon.leagueoflegends.com/api/versions.json
 
-// https://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/item.json
-// https://ddragon.leagueoflegends.com/cdn/11.3.1/data/es_ES/item.json // Spanish version
+// https://ddragon.leagueoflegends.com/cdn/11.4.1/data/en_US/item.json
+// https://ddragon.leagueoflegends.com/cdn/11.4.1/data/es_ES/item.json // Spanish version
 INPUT = JSON.parse(this.JSONView.json.data).data;
 OUTPUT = "document.ItemCodes = {";
 for(code in INPUT)
 	OUTPUT += '"' + INPUT[code].name + '":' + code + ",";
 console.log( OUTPUT.slice(0,-1) + "};" );
 
-// https://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json
+// https://ddragon.leagueoflegends.com/cdn/11.4.1/data/en_US/champion.json
 // the es_ES version is identical
 INPUT = JSON.parse(this.JSONView.json.data).data;
 OUTPUT = "document.ChampionCodes = {";
